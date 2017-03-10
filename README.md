@@ -2,7 +2,7 @@
 
 Software/virtual numeric keyboard, which can be used instead of Android/iOS ones if it suits your app style better.
 
-![screenshot_1](https://raw.github.com/nshaposhnik/react-native-virtual-keyboard/master/screenshot.png)
+![screenshot_1](https://raw.github.com/nshaposhnik/react-native-virtual-keyboard/master/example/screenshot.png)
 
 ## Installation
 ```bash
