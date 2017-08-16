@@ -18,6 +18,7 @@ class VirtualKeyboard extends Component {
 		onPress: React.PropTypes.func.isRequired,
 		backspaceImg: React.PropTypes.number,
 		applyBackspaceTint: React.PropTypes.bool,
+		decimal: React.PropTypes.bool,
 	}
 
 	static defaultProps = {
@@ -25,6 +26,7 @@ class VirtualKeyboard extends Component {
 		color: 'gray',
 		backspaceImg: require('./backspace.png'),
 		applyBackspaceTint: true,
+		decimal: false,
 	}
 
 	constructor(props) {
@@ -41,7 +43,7 @@ class VirtualKeyboard extends Component {
 				{this.Row([4, 5, 6])}
 				{this.Row([7, 8, 9])}
 				<View style={styles.row}>
-					<View style={{ flex: 1 }} />
+					{this.props.decimal ? this.Cell('.') : <View style={{ flex: 1 }} /> }
 					{this.Cell(0)}
 					{this.Backspace()}
 				</View>
@@ -66,10 +68,10 @@ class VirtualKeyboard extends Component {
 		);
 	}
 
-	Cell(number) {
+	Cell(symbol) {
 		return (
-			<TouchableOpacity style={styles.cell} key={number} accessibilityLabel={number.toString()} onPress={() => { this.onPress(number.toString()) }}>
-				<Text style={[styles.number, { color: this.props.color }]}>{number}</Text>
+			<TouchableOpacity style={styles.cell} key={symbol} accessibilityLabel={symbol.toString()} onPress={() => { this.onPress(symbol.toString()) }}>
+				<Text style={[styles.number, { color: this.props.color }]}>{symbol}</Text>
 			</TouchableOpacity>
 		);
 	}
@@ -80,6 +82,8 @@ class VirtualKeyboard extends Component {
 			if (isNaN(val)) {
 				if (val === 'back') {
 					curText = curText.slice(0, -1);
+				} else {
+					curText += val;
 				}
 			} else {
 				curText += val;

@@ -47,6 +47,7 @@ class Example extends React.Component {
 | onPress | function | \*required | The handler when a key is pressed. If pressMode === 'char', 'back' is passed for backspace |
 | backspaceImg | number | 'backspace.png' | Image to use for backspace. Default one is used if nothing provided |
 | applyBackspaceTint | bool | true | tint backspace with tintColor style option, or leave it as it is |
+| decimal | bool | false | display '.' decimal on keyboard |
 
 ## Contribution
 
