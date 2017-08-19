@@ -19,7 +19,7 @@ class Example extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<Text>{this.state.text}</Text>
+				<Text numberOfLines={1} style={styles.textInput}>{this.state.text}</Text>
 				<VirtualKeyboard color='black' pressMode='string' onPress={(val) => this.changeText(val)} />
 			</View>
 		);
@@ -37,6 +37,9 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		backgroundColor: '#F5FCFF',
 	},
+	textInput: {
+		height: 34,
+	}
 });
 
 module.exports = Example;
