@@ -31,13 +31,6 @@ class VirtualKeyboard extends Component {
 		decimal: false,
 	}
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			text: '',
-		};
-	}
-
 	render() {
 		return (
 			<View style={styles.container}>
@@ -80,7 +73,7 @@ class VirtualKeyboard extends Component {
 
 	onPress(val) {
 		if (this.props.pressMode === 'string') {
-			let curText = this.state.text;
+			let curText = this.props.text;
 			if (isNaN(val)) {
 				if (val === 'back') {
 					curText = curText.slice(0, -1);
@@ -90,7 +83,6 @@ class VirtualKeyboard extends Component {
 			} else {
 				curText += val;
 			}
-			this.setState({ text: curText });
 			this.props.onPress(curText);
 		} else /* if (props.pressMode == 'char')*/ {
 			this.props.onPress(val);
