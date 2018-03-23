@@ -1,6 +1,8 @@
 'use strict';
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import {
 	Text,
 	View,
@@ -13,12 +15,12 @@ import styles from './VirtualKeyboard.style';
 class VirtualKeyboard extends Component {
 
 	static propTypes = {
-		pressMode: React.PropTypes.oneOf(['string', 'char']),
-		color: React.PropTypes.string,
-		onPress: React.PropTypes.func.isRequired,
-		backspaceImg: React.PropTypes.number,
-		applyBackspaceTint: React.PropTypes.bool,
-		decimal: React.PropTypes.bool,
+		pressMode: PropTypes.oneOf(['string', 'char']),
+		color: PropTypes.string,
+		onPress: PropTypes.func.isRequired,
+		backspaceImg: PropTypes.number,
+		applyBackspaceTint: PropTypes.bool,
+		decimal: PropTypes.bool,
 	}
 
 	static defaultProps = {
