@@ -2,7 +2,7 @@
 
 Software/virtual numeric keyboard, which can be used instead of Android/iOS ones if it suits your app style better.
 
-![screenshot_1](https://raw.github.com/nshaposhnik/react-native-virtual-keyboard/master/example/screenshot.png)
+![screenshot_1](https://raw.github.com/nshaposhnik/react-native-virtual-keyboard/master/example/screenshot.jpg)
 
 ## Installation
 ```bash
@@ -52,3 +52,4 @@ class Example extends React.Component {
 ## Contribution
 
 - [@nshaposhnik](mailto:shaposhnik.nikita@gmail.com) The main author.
+- [@fedealconada](mailto:federico.alconada@icloud.com)
