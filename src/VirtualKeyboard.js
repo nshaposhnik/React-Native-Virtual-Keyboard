@@ -72,7 +72,7 @@ class VirtualKeyboard extends Component {
 
 	Cell(symbol) {
 		return (
-			<TouchableOpacity style={styles.cell} key={symbol} accessibilityLabel={symbol.toString()} onPress={() => { this.onPress(symbol.toString()) }}>
+			<TouchableOpacity style={[styles.cell, this.props.cellStyle]} key={symbol} accessibilityLabel={symbol.toString()} onPress={() => { this.onPress(symbol.toString()) }}>
 				<Text style={[styles.number, { color: this.props.color }]}>{symbol}</Text>
 			</TouchableOpacity>
 		);
