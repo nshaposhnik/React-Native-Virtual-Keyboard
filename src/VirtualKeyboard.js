@@ -64,7 +64,7 @@ class VirtualKeyboard extends Component {
 	Row(numbersArray) {
 		let cells = numbersArray.map((val) => this.Cell(val));
 		return (
-			<View style={styles.row}>
+			<View style={[styles.row, this.props.rowStyle]}>
 				{cells}
 			</View>
 		);
