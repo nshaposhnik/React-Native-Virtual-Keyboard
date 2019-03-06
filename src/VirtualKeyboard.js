@@ -44,7 +44,7 @@ class VirtualKeyboard extends Component {
 				{this.Row([1, 2, 3])}
 				{this.Row([4, 5, 6])}
 				{this.Row([7, 8, 9])}
-				<View style={styles.row}>
+				<View style={[styles.row, this.props.rowStyle]}>
 					{this.props.decimal ? this.Cell('.') : <View style={{ flex: 1 }} /> }
 					{this.Cell(0)}
 					{this.Backspace()}
