@@ -8,6 +8,7 @@ import {
 	View,
 	TouchableOpacity,
 	Image,
+	ViewPropTypes
 } from 'react-native';
 
 import styles from './VirtualKeyboard.style';
@@ -21,6 +22,8 @@ class VirtualKeyboard extends Component {
 		backspaceImg: PropTypes.number,
 		applyBackspaceTint: PropTypes.bool,
 		decimal: PropTypes.bool,
+		rowStyle: ViewPropTypes.style,
+		cellStyle: ViewPropTypes.style
 	}
 
 	static defaultProps = {
