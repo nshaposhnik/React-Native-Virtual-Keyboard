@@ -40,7 +40,7 @@ class VirtualKeyboard extends Component {
 
 	render() {
 		return (
-			<View style={[this.props.style, styles.container]}>
+			<View style={[styles.container, this.props.style]}>
 				{this.Row([1, 2, 3])}
 				{this.Row([4, 5, 6])}
 				{this.Row([7, 8, 9])}
