@@ -45,7 +45,7 @@ class Example extends React.Component {
 | pressMode | string | 'string' | Value to pass to onPress. 'char' = each individual pressed symbol, 'string' = form and pass whole string |
 | color | string | 'gray' | color of text and backspace tinting (if enabled) |
 | onPress | function | \*required | The handler when a key is pressed. If pressMode === 'char', 'back' is passed for backspace |
-| backspaceImg | number | 'backspace.png' | Image to use for backspace. Default one is used if nothing provided. To use image from version 1.0.7 and below, use require('./node_modules/react-native-virtual-keyboard/src/backspace_old.png') |
+| backspaceImg | number | 'backspace.png' | Image to use for backspace. Default one is used if nothing is provided. To use image from version 1.0.7 and below, use require('./node_modules/react-native-virtual-keyboard/src/backspace_old.png') |
 | applyBackspaceTint | bool | true | tint backspace with tintColor style option, or leave it as it is |
 | decimal | bool | false | display '.' decimal on keyboard |
 | rowStyle | style | - | override style for rows |
@@ -54,4 +54,3 @@ class Example extends React.Component {
 ## Contribution
 
 - [@nshaposhnik](mailto:shaposhnik.nikita@gmail.com) The main author.
-- [@fedealconada](mailto:federico.alconada@icloud.com)
