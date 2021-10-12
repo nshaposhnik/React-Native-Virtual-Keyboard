@@ -13,6 +13,10 @@ import {
 
 import styles from './VirtualKeyboard.style';
 
+const BACK = 'back';
+const CLEAR = 'clear';
+const PRESS_MODE_STRING = 'string';
+
 export default class VirtualKeyboard extends Component {
 
 	static propTypes = {
@@ -60,8 +64,8 @@ export default class VirtualKeyboard extends Component {
 
 	Backspace() {
 		return (
-			<TouchableOpacity accessibilityLabel='backspace' style={styles.backspace} onPress={() => { this.onPress('back') }}
-				onLongPress={() => { if(this.props.clearOnLongPress) this.onPress('clear') }}
+			<TouchableOpacity accessibilityLabel='backspace' style={styles.backspace} onPress={() => { this.onPress(BACK) }}
+				onLongPress={() => { if(this.props.clearOnLongPress) this.onPress(CLEAR) }}
 			>
 				<Image source={this.props.backspaceImg} resizeMode='contain' style={this.props.applyBackspaceTint && ({ tintColor: this.props.color })} />
 			</TouchableOpacity>
@@ -86,12 +90,12 @@ export default class VirtualKeyboard extends Component {
 	}
 
 	onPress(val) {
-		if (this.props.pressMode === 'string') {
+		if (this.props.pressMode === PRESS_MODE_STRING) {
 			let curText = this.state.text;
 			if (isNaN(val)) {
-				if (val === 'back') {
+				if (val === BACK) {
 					curText = curText.slice(0, -1);
-				} else if (val === "clear") {
+				} else if (val === CLEAR) {
 					curText = "";
 				} else {
 					curText += val;
