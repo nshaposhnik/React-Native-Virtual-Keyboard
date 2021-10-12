@@ -1,7 +1,7 @@
 import { StyleSheet, Dimensions, Platform } from 'react-native';
 const { height, width } = Dimensions.get('window');
 
-module.exports = StyleSheet.create({
+export default StyleSheet.create({
 	container: {
 		marginTop: 20,
 		marginLeft: 30,

@@ -13,7 +13,7 @@ import {
 
 import styles from './VirtualKeyboard.style';
 
-class VirtualKeyboard extends Component {
+export default class VirtualKeyboard extends Component {
 
 	static propTypes = {
 		pressMode: PropTypes.oneOf(['string', 'char']),
@@ -100,6 +100,3 @@ class VirtualKeyboard extends Component {
 		}
 	}
 }
-
-
-module.exports = VirtualKeyboard;
