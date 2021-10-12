@@ -23,7 +23,8 @@ export default class VirtualKeyboard extends Component {
 		applyBackspaceTint: PropTypes.bool,
 		decimal: PropTypes.bool,
 		rowStyle: ViewPropTypes.style,
-		cellStyle: ViewPropTypes.style
+		cellStyle: ViewPropTypes.style,
+		clearOnLongPress: PropTypes.bool,
 	}
 
 	static defaultProps = {
@@ -32,6 +33,7 @@ export default class VirtualKeyboard extends Component {
 		backspaceImg: require('./backspace.png'),
 		applyBackspaceTint: true,
 		decimal: false,
+		clearOnLongPress: false,
 	}
 
 	constructor(props) {
@@ -58,9 +60,9 @@ export default class VirtualKeyboard extends Component {
 
 	Backspace() {
 		return (
-			<TouchableOpacity accessibilityLabel='backspace' style={styles.backspace} onPress={() => { this.onPress('back') }} 
-      onLongPress={()=>{this.onLongPress('clear')}}
-      >
+			<TouchableOpacity accessibilityLabel='backspace' style={styles.backspace} onPress={() => { this.onPress('back') }}
+				onLongPress={() => { if(this.props.clearOnLongPress) this.onPress('clear') }}
+			>
 				<Image source={this.props.backspaceImg} resizeMode='contain' style={this.props.applyBackspaceTint && ({ tintColor: this.props.color })} />
 			</TouchableOpacity>
 		);
@@ -89,6 +91,8 @@ export default class VirtualKeyboard extends Component {
 			if (isNaN(val)) {
 				if (val === 'back') {
 					curText = curText.slice(0, -1);
+				} else if (val === "clear") {
+					curText = "";
 				} else {
 					curText += val;
 				}
@@ -101,16 +105,5 @@ export default class VirtualKeyboard extends Component {
 			this.props.onPress(val);
 		}
 	}
-  onLongPress(val) {
-    let curText = this.state.text;
-    if (isNaN(val)) {
-      if (val === "clear") {
-        curText = "";
-      } else {
-        curText += val;
-      }
-    }
-    this.setState({ text: curText });
-    this.props.onPress(curText);
-  }
+
 }
