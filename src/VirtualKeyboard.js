@@ -28,6 +28,7 @@ export default class VirtualKeyboard extends Component {
 		decimal: PropTypes.bool,
 		rowStyle: ViewPropTypes.style,
 		cellStyle: ViewPropTypes.style,
+		textStyle: Text.propTypes.style,
 		clearOnLongPress: PropTypes.bool,
 	}
 
@@ -84,7 +85,7 @@ export default class VirtualKeyboard extends Component {
 	Cell(symbol) {
 		return (
 			<TouchableOpacity style={[styles.cell, this.props.cellStyle]} key={symbol} accessibilityLabel={symbol.toString()} onPress={() => { this.onPress(symbol.toString()) }}>
-				<Text style={[styles.number, { color: this.props.color }]}>{symbol}</Text>
+				<Text style={[styles.number, this.props.textStyle, { color: this.props.color }]}>{symbol}</Text>
 			</TouchableOpacity>
 		);
 	}
