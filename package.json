@@ -1,6 +1,6 @@
 {
   "name": "react-native-virtual-keyboard",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "React native's software/virtual numeric keyboard, which can be used instead of Android/iOS ones if it suits your app style better.",
   "main": "./src/VirtualKeyboard.js",
   "scripts": {

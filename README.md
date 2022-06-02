@@ -53,6 +53,7 @@ class Example extends React.Component {
 | decimal | bool | false | display '.' decimal on keyboard |
 | rowStyle | style | - | override style for rows |
 | cellStyle | style | - | override style for cells |
+| textStyle | style | - | override style for text |
 
 ## Contribution
 
