@@ -8,7 +8,8 @@ import {
 	View,
 	TouchableOpacity,
 	Image,
-	ViewPropTypes
+	ViewPropTypes,
+	Vibration
 } from 'react-native';
 
 import styles from './VirtualKeyboard.style';
@@ -16,7 +17,7 @@ import styles from './VirtualKeyboard.style';
 const BACK = 'back';
 const CLEAR = 'clear';
 const PRESS_MODE_STRING = 'string';
-
+const NUMBERS=[1,2,3,4,5,6,7,8,9]
 export default class VirtualKeyboard extends Component {
 
 	static propTypes = {
@@ -45,19 +46,30 @@ export default class VirtualKeyboard extends Component {
 		super(props);
 		this.state = {
 			text: '',
+			numbers: props.shuffle? this.shuffleArray(NUMBERS): NUMBERS
 		};
+	}
+
+	shuffleArray= array=> {
+		for (var i = array.length - 1; i > 0; i--) {
+			var j = Math.floor(Math.random() * (i + 1));
+			var temp = array[i];
+			array[i] = array[j];
+			array[j] = temp;
+		}
+		return array
 	}
 
 	render() {
 		return (
 			<View style={[styles.container, this.props.style]}>
-				{this.Row([1, 2, 3])}
-				{this.Row([4, 5, 6])}
-				{this.Row([7, 8, 9])}
+				{this.Row(this.state.numbers.slice(0,3))}
+				{this.Row(this.state.numbers.slice(3,6))}
+				{this.Row(this.state.numbers.slice(6,9))}
 				<View style={[styles.row, this.props.rowStyle]}>
-					{this.props.decimal ? this.Cell('.') : <View style={{ flex: 1 }} /> }
-					{this.Cell(0)}
 					{this.Backspace()}
+					{this.Cell(0)}
+					{this.props.decimal ? this.Cell('.') : this.props.confirmbtn ? this.props.confirmbtn:  <View style={{ flex: 1 }} /> }
 				</View>
 			</View>
 		);
@@ -65,7 +77,7 @@ export default class VirtualKeyboard extends Component {
 
 	Backspace() {
 		return (
-			<TouchableOpacity accessibilityLabel='backspace' style={styles.backspace} onPress={() => { this.onPress(BACK) }}
+			<TouchableOpacity accessibilityLabel='backspace' style={styles.backspace} onPress={() => { Vibration.vibrate(20); this.onPress(BACK) }}
 				onLongPress={() => { if(this.props.clearOnLongPress) this.onPress(CLEAR) }}
 			>
 				<Image source={this.props.backspaceImg} resizeMode='contain' style={this.props.applyBackspaceTint && ({ tintColor: this.props.color })} />
@@ -84,7 +96,7 @@ export default class VirtualKeyboard extends Component {
 
 	Cell(symbol) {
 		return (
-			<TouchableOpacity style={[styles.cell, this.props.cellStyle]} key={symbol} accessibilityLabel={symbol.toString()} onPress={() => { this.onPress(symbol.toString()) }}>
+			<TouchableOpacity style={[styles.cell, this.props.cellStyle]} key={symbol} accessibilityLabel={symbol.toString()} onPress={() => { Vibration.vibrate(20); this.onPress(symbol.toString()) }}>
 				<Text style={[styles.number, this.props.textStyle, { color: this.props.color }]}>{symbol}</Text>
 			</TouchableOpacity>
 		);
