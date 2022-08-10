@@ -54,7 +54,10 @@ class Example extends React.Component {
 | rowStyle | style | - | override style for rows |
 | cellStyle | style | - | override style for cells |
 | textStyle | style | - | override style for text |
+| shuffle | boolean | - | this allow to shuffle keyboard keys |
+| confirmbtn | element | - | This handle the element to show as a confirm button |
 
 ## Contribution
 
 - [@nshaposhnik](mailto:shaposhnik.nikita@gmail.com) The main author.
+-[@mzaifquraishi](mailto:mzaifquraishi@gmail.com) [shuffle,confirmbtn]
