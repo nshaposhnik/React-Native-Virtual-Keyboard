@@ -7,9 +7,9 @@ import {
 	Text,
 	View,
 	TouchableOpacity,
-	Image,
-	ViewPropTypes
+	Image
 } from 'react-native';
+import {ViewPropTypes, TextPropTypes} from 'deprecated-react-native-prop-types';
 
 import styles from './VirtualKeyboard.style';
 
@@ -28,7 +28,7 @@ export default class VirtualKeyboard extends Component {
 		decimal: PropTypes.bool,
 		rowStyle: ViewPropTypes.style,
 		cellStyle: ViewPropTypes.style,
-		textStyle: Text.propTypes.style,
+		textStyle: TextPropTypes.style,
 		clearOnLongPress: PropTypes.bool,
 	}
 
@@ -66,7 +66,7 @@ export default class VirtualKeyboard extends Component {
 	Backspace() {
 		return (
 			<TouchableOpacity accessibilityLabel='backspace' style={styles.backspace} onPress={() => { this.onPress(BACK) }}
-				onLongPress={() => { if(this.props.clearOnLongPress) this.onPress(CLEAR) }}
+							  onLongPress={() => { if(this.props.clearOnLongPress) this.onPress(CLEAR) }}
 			>
 				<Image source={this.props.backspaceImg} resizeMode='contain' style={this.props.applyBackspaceTint && ({ tintColor: this.props.color })} />
 			</TouchableOpacity>
