@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
 	},
 	textInput: {
 		height: 34,
+		color: 'black',
 	}
 });
 
