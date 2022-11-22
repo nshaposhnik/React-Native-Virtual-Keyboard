@@ -52,7 +52,3 @@ class Example extends React.Component {
 | rowStyle | style | - | override style for rows |
 | cellStyle | style | - | override style for cells |
 | textStyle | style | - | override style for text |
-
-## Contribution
-
-- [@nshaposhnik](mailto:shaposhnik.nikita@gmail.com) The main author.
