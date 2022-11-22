@@ -1,5 +1,3 @@
-[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct-single.svg)](https://stand-with-ukraine.pp.ua)
-
 [![NPM version](https://badge.fury.io/js/react-native-virtual-keyboard.svg)](http://badge.fury.io/js/react-native-virtual-keyboard)
 
 Software/virtual numeric keyboard, which can be used instead of Android/iOS ones if it suits your app style better.
