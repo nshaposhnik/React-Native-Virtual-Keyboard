@@ -49,6 +49,14 @@ export default class VirtualKeyboard extends Component {
 		};
 	}
 
+	renderDecimal() {
+		if (this.props.decimal) {
+			return this.props.decimalSymbol ? this.Cell(this.props.decimalSymbol) : this.Cell('.');
+		} else {
+			return <View style={{ flex: 1 }} />;
+		}
+	}
+
 	render() {
 		return (
 			<View style={[styles.container, this.props.style]}>
@@ -56,7 +64,7 @@ export default class VirtualKeyboard extends Component {
 				{this.Row([4, 5, 6])}
 				{this.Row([7, 8, 9])}
 				<View style={[styles.row, this.props.rowStyle]}>
-					{this.props.decimal ? this.Cell(this.props.decimalSymbol) || this.Cell('.') : <View style={{ flex: 1 }} /> }
+					{this.renderDecimal()}
 					{this.Cell(0)}
 					{this.Backspace()}
 				</View>
