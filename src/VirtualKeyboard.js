@@ -26,6 +26,7 @@ export default class VirtualKeyboard extends Component {
 		backspaceImg: PropTypes.number,
 		applyBackspaceTint: PropTypes.bool,
 		decimal: PropTypes.bool,
+		decimalSymbol: PropTypes.string,
 		rowStyle: ViewPropTypes.style,
 		cellStyle: ViewPropTypes.style,
 		textStyle: TextPropTypes.style,
@@ -55,7 +56,7 @@ export default class VirtualKeyboard extends Component {
 				{this.Row([4, 5, 6])}
 				{this.Row([7, 8, 9])}
 				<View style={[styles.row, this.props.rowStyle]}>
-					{this.props.decimal ? this.Cell('.') : <View style={{ flex: 1 }} /> }
+					{this.props.decimal ? this.Cell(this.props.decimalSymbol) || this.Cell('.') : <View style={{ flex: 1 }} /> }
 					{this.Cell(0)}
 					{this.Backspace()}
 				</View>
